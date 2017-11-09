@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import autobind from 'react-autobind';
+import {LinkContainer} from 'react-router-bootstrap';
+import {Link} from 'react-router-dom';
 import {Grid, Row, Col, Image, Button, Thumbnail} from 'react-bootstrap';
 
 function _generateUserProfileUrl(userName) {
@@ -18,11 +20,15 @@ export default class SurfVideo extends Component {
     }
 
     render() {
+        let videoLinkString = `/videos/${this.props.video.videoId}/details`;
+
         return (
-            <Thumbnail href={_generateVideoUrl(this.props.video.videoId)} src={this.props.video.thumbnailUrl}>
-                <h3>{this.props.video.title}</h3>
-                <a href={_generateUserProfileUrl(this.props.video.author)}>{this.props.video.author}</a>
-            </Thumbnail>
+            <Link to={videoLinkString}>
+                <Thumbnail src={this.props.video.thumbnailUrl}>
+                    <h3>{this.props.video.title}</h3>
+                    <p>{this.props.video.description}</p>
+                </Thumbnail>
+            </Link>
         )
     }
 }

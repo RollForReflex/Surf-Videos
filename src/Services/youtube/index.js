@@ -35,6 +35,7 @@ export default class YoutubeService {
             videoId: response.id.videoId,
             videoUrl: `https://youtube.com/video/${response.id.videoId}`,
             title: response.snippet.title,
+            description: response.snippet.description,
             channelId: response.snippet.channelId,
             author: response.snippet.channelTitle,
             thumbnailUrl: response.snippet.thumbnails.default.url
