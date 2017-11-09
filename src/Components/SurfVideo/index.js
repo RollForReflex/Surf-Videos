@@ -19,16 +19,10 @@ export default class SurfVideo extends Component {
 
     render() {
         return (
-            <Grid>
-                <Row>
-                    <Col xs={6} md={4}>
-                        <Thumbnail href={_generateVideoUrl(this.props.url)} src={this.props.thumbnailUrl}>
-                            <h3>{this.props.title}</h3>
-                            <a href={_generateUserProfileUrl(this.props.author)}></a>
-                        </Thumbnail>
-                    </Col>
-                </Row>
-            </Grid>
+            <Thumbnail href={_generateVideoUrl(this.props.video.videoId)} src={this.props.video.thumbnailUrl}>
+                <h3>{this.props.video.title}</h3>
+                <a href={_generateUserProfileUrl(this.props.video.author)}>{this.props.video.author}</a>
+            </Thumbnail>
         )
     }
 }
